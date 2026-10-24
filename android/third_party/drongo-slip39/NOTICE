@@ -1,0 +1,22 @@
+slip39-trio includes code from Drongo, the Bitcoin library of Sparrow Wallet.
+
+  Project:  https://github.com/sparrowwallet/drongo
+  License:  Apache License 2.0 (see LICENSE in this folder)
+  Commit:   d31b0249542d4616187e01466a81f98f1d70c935 (2026-10-20)
+
+Files copied:
+  android/core/src/main/java/com/sparrowwallet/drongo/wallet/MnemonicException.java
+  android/core/src/main/java/com/sparrowwallet/drongo/wallet/slip39/*.java
+  android/core/src/main/resources/wordlist/slip39.txt
+
+Modifications (each modified file also carries a header saying so):
+  Slip39MnemonicCode.java
+    - removed the slf4j logging dependency; a missing word list now fails at class load
+    - Stream.toList() replaced by Collectors.toList() (not available on Android before API 34)
+  MnemonicException.java
+    - removed MnemonicTypeException, which depends on Drongo's DeterministicSeed
+
+All other files are byte-for-byte copies of the commit above.
+
+The SLIP-39 word list is identical (same SHA-256) to the one in Trezor's reference
+implementation, github.com/trezor/python-shamir-mnemonic.

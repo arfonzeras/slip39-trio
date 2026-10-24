@@ -1,0 +1,14 @@
+slip39-trio
+Copyright 2026 The slip39-trio contributors
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This product includes software developed by third parties:
+
+- Drongo (Sparrow Wallet), Apache License 2.0
+  SLIP-39 implementation, vendored in android/core/src/main/java/com/sparrowwallet/drongo/
+  Details and modifications: android/third_party/drongo-slip39/NOTICE
+
+- Trezor / SatoshiLabs reference implementations, MIT License
+  Official SLIP-39 and BIP39 test vectors and the BIP39 English word list
+  Details: android/third_party/trezor-vectors/NOTICE

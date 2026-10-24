@@ -1,0 +1,18 @@
+# Pinned hashes of vendored third-party files (paths relative to android/).
+# CI fails if any of them changes. Re-vendoring must update this file and the NOTICE files together.
+94095a3fa84bbf47ddcb645afeee9eadfde207806c74f31b995aed885ac38f33  core/src/main/java/com/sparrowwallet/drongo/wallet/MnemonicException.java
+4ee302576f7d006bee5f06e43f6a2f6e4308478c94be4566e3d856b9ea1324f8  core/src/main/java/com/sparrowwallet/drongo/wallet/slip39/Cipher.java
+dd512db76fc70a11793a7c4e5a522739aff0aab8371f61ec693b00ed513b798d  core/src/main/java/com/sparrowwallet/drongo/wallet/slip39/EncryptedMasterSecret.java
+ec2efe510fb89af94457aeb263de90ce520fab5f3c20424dd0d21290a13f314b  core/src/main/java/com/sparrowwallet/drongo/wallet/slip39/GroupParams.java
+e643e4b38be0cc0544207465067f08decff5c237025f51dd3647f46f005fb5a8  core/src/main/java/com/sparrowwallet/drongo/wallet/slip39/RawShare.java
+8bdc9fa2cdc180dbcc0bf9d77f922d0455c9e5655838179037932c3a3e9685d4  core/src/main/java/com/sparrowwallet/drongo/wallet/slip39/RecoveryState.java
+c591e8c3c985fbcb4e16767ed34dd310fa19d1d79266349327fcdc164ae571c1  core/src/main/java/com/sparrowwallet/drongo/wallet/slip39/Rs1024.java
+3144b5b4b0c32d4cc0dc13526ac5bba352b5ea390d3bdb476462dc533e46137e  core/src/main/java/com/sparrowwallet/drongo/wallet/slip39/Shamir.java
+ab4dcd24e56838fb6be882d5571436b60a63591e9cf03c5a9d38c7ed6f402ee4  core/src/main/java/com/sparrowwallet/drongo/wallet/slip39/Share.java
+6846fe7fc86e4cf57a155238ca4543db433970917a2da30ce6f212b0e2c4c513  core/src/main/java/com/sparrowwallet/drongo/wallet/slip39/ShareGroup.java
+e8faf7ad33580b2e3d4225a033c858ee173ba5730925830e3da047b0fa0ee179  core/src/main/java/com/sparrowwallet/drongo/wallet/slip39/Slip39MnemonicCode.java
+f068864841029b9240f943a8061c33b2fefad621526ec61f6f089ac41fac890d  core/src/main/java/com/sparrowwallet/drongo/wallet/slip39/Utils.java
+bcc4555340332d169718aed8bf31dd9d5248cb7da6e5d355140ef4f1e601eec3  core/src/main/resources/wordlist/slip39.txt
+2f5eed53a4727b4bf8880d8f3f199efc90e58503646d9ff8eff3a2ed3b24dbda  core/src/main/resources/com/alfonsoteran/slip39trio/bip39-english.txt
+7dc2801c307616b363acb80a0a22f9ce74a9697ebbaf78bcba3f7fab2745d7f8  core/src/test/resources/vectors/bip39-vectors.json
+13ebecebdd869dd2bc2cdf69e7ce3a158cf106cac76c39d17682b1c6cdabbdc4  core/src/test/resources/vectors/slip39-vectors.json

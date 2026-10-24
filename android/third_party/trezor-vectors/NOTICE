@@ -1,0 +1,12 @@
+Official test vectors and word list from SatoshiLabs / Trezor (MIT licenses in this folder).
+
+  android/core/src/test/resources/vectors/slip39-vectors.json
+    from https://github.com/trezor/python-shamir-mnemonic  (vectors.json, unmodified)
+    commit 1ff7b9a9d675ab69945c84a50848d704ce1c78b7
+
+  android/core/src/test/resources/vectors/bip39-vectors.json
+    from https://github.com/trezor/python-mnemonic  (vectors.json, "english" section only)
+    commit b57a5ad77a981e743f4167ab2f7927a55c1e82a8
+
+  android/core/src/main/resources/com/alfonsoteran/slip39trio/bip39-english.txt
+    from https://github.com/trezor/python-mnemonic  (src/mnemonic/wordlist/english.txt, unmodified)
