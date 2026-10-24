@@ -27,7 +27,7 @@ jobs:
         with:
           packages: ''
 
-      - uses: gradle/actions/setup-gradle@v4
+      - uses: gradle/actions/setup-gradle@v6
 
       - name: Build and lint
         run: bash ./gradlew :app:assembleDebug :app:assembleRelease :app:lintDebug --no-daemon
