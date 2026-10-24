@@ -26,6 +26,12 @@ ALLOWED_PERMISSIONS = {
 }
 ALLOWED_EXPORTED = set()   # e.g. the launcher activity, once the UI exists
 
+# Legacy fingerprint permission, deprecated since API 28 (replaced by USE_BIOMETRIC).
+# Libraries such as androidx.biometric may add it for old devices. It is accepted only
+# when the merged manifest caps it at this API level or lower.
+LEGACY_FINGERPRINT = "android.permission.USE_FINGERPRINT"
+LEGACY_FINGERPRINT_MAX_SDK = 27
+
 
 def main() -> int:
     if len(sys.argv) < 2:
@@ -38,6 +44,16 @@ def main() -> int:
     for tag in ("uses-permission", "uses-permission-sdk-23"):
         for el in root.iter(tag):
             name = el.get(A + "name")
+            if name == LEGACY_FINGERPRINT:
+                max_sdk = el.get(A + "maxSdkVersion")
+                if max_sdk is not None and max_sdk.isdigit() \
+                        and int(max_sdk) <= LEGACY_FINGERPRINT_MAX_SDK:
+                    print(f"note: {name} limited to API <= {max_sdk}")
+                else:
+                    errors.append(
+                        f"{name} must have maxSdkVersion <= "
+                        f"{LEGACY_FINGERPRINT_MAX_SDK} (found: {max_sdk})")
+                continue
             if name not in ALLOWED_PERMISSIONS:
                 errors.append(f"unexpected permission: {name}")
 
