@@ -1,0 +1,32 @@
+name: core-tests
+
+# Official SLIP-39 / BIP39 vectors + ceremony tests, and the vendored-code integrity check.
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Vendored code, word lists and vectors are unchanged
+        working-directory: android
+        run: grep -v '^#' third_party/SHA256SUMS | sha256sum --check --strict
+
+      - uses: gradle/actions/wrapper-validation@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Run core tests
+        # "bash" keeps working if an upload drops the executable bit of gradlew
+        run: bash ./android/gradlew -p android/core test --no-daemon

@@ -1,0 +1,40 @@
+name: macos-build
+
+# Compiles the Mac CLI on Apple Silicon. The runner has no usable Secure Enclave or Touch ID,
+# so only the build and the usage path are exercised here.
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  cli:
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: macos
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build
+        run: swift build -c release
+
+      - name: Usage exits with code 2
+        run: |
+          set +e
+          out=$(.build/release/slip39-trio-mac 2>&1); code=$?
+          set -e
+          echo "$out"
+          test "$code" -eq 2
+          echo "$out" | grep -q "usage: slip39-trio-mac"
+
+      - name: Refuses to reveal while online (runner is online)
+        run: |
+          set +e
+          out=$(.build/release/slip39-trio-mac reveal 2>&1); code=$?
+          set -e
+          echo "$out"
+          test "$code" -eq 1
+          echo "$out" | grep -q "network path detected"

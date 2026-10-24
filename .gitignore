@@ -1,0 +1,14 @@
+# Build output
+build/
+.gradle/
+.build/
+.swiftpm/
+*.apk
+local.properties
+.idea/
+.DS_Store
+
+# Never commit secrets or slip39-trio state
+.slip39-trio/
+*.age
+share-*.bin
