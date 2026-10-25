@@ -3,7 +3,7 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    kotlin("jvm") version "2.0.21"
+    kotlin("jvm") version "2.4.21"
     `java-library`
 }
 
@@ -23,7 +23,7 @@ kotlin { compilerOptions { jvmTarget.set(JvmTarget.JVM_17) } }
 
 dependencies {
     testImplementation("junit:junit:4.13.2")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.12.0")
 }
 
 tasks.test {

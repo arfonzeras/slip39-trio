@@ -26,5 +26,5 @@ android {
 dependencies {
     implementation("com.alfonsoteran.slip39trio:core")      // ../core, via includeBuild
     implementation("androidx.biometric:biometric:1.1.0")
-    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("androidx.appcompat:appcompat:1.8.0")
 }
