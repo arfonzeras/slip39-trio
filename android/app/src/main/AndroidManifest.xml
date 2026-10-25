@@ -3,11 +3,17 @@
   Deliberately NO android.permission.INTERNET: this app cannot open sockets.
   ACCESS_NETWORK_STATE is only used by the offline gate to READ connectivity.
   allowBackup / fullBackupContent off: share B must never reach cloud backup.
+  USE_FINGERPRINT is removed: minSdk is 30, and that legacy permission (deprecated in
+  API 28) is only added by libraries through manifest merging. USE_BIOMETRIC is enough.
 -->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission
+        android:name="android.permission.USE_FINGERPRINT"
+        tools:node="remove" />
 
     <application
         android:allowBackup="false"
